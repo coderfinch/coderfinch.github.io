@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>LandingPage</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>
+            FinchEdit
+        </h1>
+        <div  class="grid-container">
+                <div class="item">
+                        <br/>
+                        Experience the innovative solution to Static Software Analysis with FinchEdit.
+                        From software flow analysis to intuitive user interface we help to enhance software quality by identifying and reporting vulnerabilities in the source code.
+                </div>
+                <div class="item">
+                        <br/>
+                        FinchEdit is a C code editor integrated with DefChecker, a static source code analyzer tool.
+                        Together, they offer a comprehensive static code analysis experience.
+                        The editor has Flow Graph View that provides deeper insights into the data flow of the source code.
+                </div>
+        </div>
+        <h2>
+                UI Views
+        </h2>
+        <div  class="grid-container">
+                <div class="item">
+                        <h3>
+                                Code Editor Tab
+                        </h3>
+                        The Code Editor highlights the lines in C source code that have "use before definition" vulnerability.
+                        User can open a .c file from local file system for editing, fix errors and save changes back to filesystem.   
+                </div>
+                <div class="item">
+                        <h3>
+                                Flow Graph View Tab
+                        </h3>
+                        The Flow Graph View shows the control flow of a selected function as basic blocks and edges.
+                        By default, the last function in the .c file currently opened in the Code Editor tab is selected.
+                        Highlights the statements inside basic blocks that have "use before definition" vulnerability.
+                </div>
+                <div class="item">
+                        <h3>
+                                Output View Tab
+                        </h3>
+                        The Output View shows the list of undefined variables observed in .c file selected from File Explorer tab
+                        User can select an error message to see the corresponding highlighted results in Code Editor and Flow Graph View tabs.
+                </div>
+                <div class="item">
+                        <h3>
+                                File Explorer View Tab
+                        </h3>
+                        The File Explorer lists the content of a folder selected from the local file system.
+                        User can open root folder containing the source code on the File Explorer tab.
+                        User can browse and select .c file from the list to perform analysis on a specific file.
+                        By default, analysis is performed on all .c file under the root folder.
+                </div>
+        </div>
+        <h2>
+                Analysis
+        </h2>
+        <div  class="grid-container">
+                <div class="item">
+                        <h3>
+                                Data Flow analysis
+                        </h3>
+                        Flow sensitive analysis is performed on source code of .c file and included headers.
+                        The analysis runs on each function in a translation unit and outputs uninitialized variables.
+                </div>
+                <div class="item">
+                        <h3>
+                                Pointer-Alias analysis
+                        </h3>
+                        The points-to analysis is performed to find uninitialized/undefined pointers.
+                        Interprocedural analysis is performed for call sites that resolve to functions in the same translation unit.
+                </div>
+        </div>
+        <div  class="grid-container">
+                <div class="item">
+                        <h3>
+                                How it works?
+                        </h3>
+                        1. Open the folder that has .c/.h files in File Explorer tab.<br/>
+                        2. Open the source file to be analyzed in Code Editor tab.<br/>
+                        3. Click Run from menu<br/>
+                        4. View the results in Output View tab.<br/>
+                        5. View highlighted results in Code Editor tab.</br/>
+                        6. Switch to Flow Graph View tab to view the flow graph and highlighted results.
+                </div>
+                <div class="item">
+                        <h3>
+                                Sample
+                        </h3>
+                        1. Launch FinchEdit.exe<br/>
+                        2. Click menuitem File->Open Sample->Open Sample 1<br/>
+                        3. Code Editor tab shows contents of selected sample<br/>
+                        4. Switch to Flow Graph View tab to view Control Flow Graph<br/>
+                        5. Click menuitem File->Run<br/>
+                        6. Output View shows the list of undefined variables.
+                </div>
+                <div class="item">
+                        <h3>
+                                Prerequisites
+                        </h3>
+                        1. Install Microsoft Visual C++ 2015-2022 Redistributable (x64).<br/>
+                        2. Qt 6.8.3 (using LGPL license).<br/>
+                        Source code is available at https://www.qt.io/development/download-open-source<br/>
+                        The libraries are packaged along with the application.<br/>
+                        Built using Visual Studio 2022 (64-bit) version 17.14.15 and Qt 6.8.3. 
+                </div>
+        </div>
+        <h2>
+                Code snippets and expected result
+        </h2>
+        <div  class="grid-sample-container">
+                <div class="sample-item">
+                        <h3>
+                                1) f1.c
+                        </h3>
+                        <pre><code>
+                                Line 1: void f1() {
+                                Line 2:     int b;
+                                Line 3:     int c=5;
+                                Line 4:     int sum = b+c;
+                                Line 5: }
+                                Line 6: int main() {
+                                Line 7:     f1();
+                                Line 8: }
+                        </code></pre>
+                        <h4>
+                                Output
+                        </h4>
+                        <p>
+                                Undefined variable b in Line 4 : sum = b+c
+                        </p>
+                </div>
+                <div class="sample-item">
+                        <h3>
+                                2) f2.c
+                        </h3>
+                        <pre><code>
+                                Line 1:  void f2() {
+                                Line 2:      int a=1;
+                                Line 3:      int b;
+                                Line 4:      int c=5;
+                                Line 5:      if( a+c ) {
+                                Line 6:          b=2;
+                                Line 7:      }
+                                Line 8:      else {
+                                Line 9:          int sum=b+c;
+                                Line 10:      }
+                                Line 11: }
+                                Line 12: int main() {
+                                Line 13:     f2();
+                                Line 14: }
+                        </code></pre>
+                        <h4>
+                                Output
+                        </h4>
+                        <p>
+                                Undefined variable b in Line 8 : sum=b+c
+                        </p>
+                        <h4>
+                                Comments
+                        </h4>
+                        <p>
+                                Variable b is not assigned a value in else case
+                        </p>
+                </div>
+                <div class="sample-item">
+                        <h3>
+                                3) f3.c
+                        </h3>
+                        <pre><code>
+                                Line 1:  void f3() {
+                                Line 2:      int a =1;
+                                Line 3:      int b;
+                                Line 4:      int c=5;
+                                Line 5:      if( a+c ) {
+                                Line 6:          b=2;
+                                Line 7:      }
+                                Line 8:      else {
+                                Line 9:          int b=6;
+                                Line 10:         int sum=b+c;
+                                Line 11:     }
+                                Line 12: }
+                                Line 13: int main() {
+                                Line 14:     f3();
+                                Line 15: }  
+                        </code></pre>
+                        <h4>
+                                Output
+                        </h4>
+                        <p>
+                                No error
+                        </p>
+                        <h4>
+                                Comments
+                        </h4>
+                        <p>
+                                Variable b in else block shadows the uninitialized variable in outer scope
+                        </p> 
+                </div>
+                <div class="sample-item">
+                        <h3>
+                                4) f4.c
+                        </h3>
+                        <pre><code>
+                                Line 1: void f4() {
+                                Line 2:     int *q;
+                                Line 3:     int a = *q;
+                                Line 4: }
+                                Line 5: int main() {
+                                Line 6:     f4();
+                                Line 7: }
+                        </code></pre>
+                        <h4>
+                                Output
+                        </h4>
+                        <p>
+                                Undefined variable q in Line 3 : a = *q<br/>
+                                Undefined variable *q in Line 3 : a = *q
+                        </p>
+
+                </div>
+                <div class="sample-item">
+                        <h3>
+                                5) f5.c
+                        </h3>
+                        <pre><code>
+                                Line 1: void f5() {
+                                Line 2:     int *p=malloc(4);
+                                Line 3:     int *q;
+                                Line 4:     int a;
+                                Line 5:     q = p;
+                                Line 6:     *p = 5;
+                                Line 7:     a = *q;
+                                Line 8: }
+                                Line 9: int main() {
+                                Line 10:     f5();
+                                Line 11:}
+                        </code></pre>
+                        <h4>
+                                Output
+                        </h4>
+                        <p>
+                                No error
+                        </p>
+                        <h4>
+                                Comments
+                        </h4>
+                        <p>
+                                Variables p and q both point to the same memory allocated by malloc
+                        </p>  
+                </div>
+                <div class="sample-item">
+                        <h3>
+                                6) f6.c
+                        </h3>
+                        <pre><code>
+                                Line 1: void f6() {
+                                Line 2:     int *p=malloc(4);
+                                Line 3:     int *q;
+                                Line 4:     int a;
+                                Line 5:     q = p;
+                                Line 6:     free(p);
+                                Line 7:     a = *q;
+                                Line 8: }
+                                Line 9: int main() {
+                                Line 10:     f6();
+                                Line 11:}
+                        </code></pre>
+                        <h4>
+                                Output
+                        </h4>
+                        <p>
+                                Undefined variable q in Line 7 : a = *q<br/>
+                                Undefined variable *q in Line 7 : a = *q<br/>
+                        </p>
+                </div>
+        </div>
+        <h2>
+                Release Notes
+        </h2>
+        <div  class="grid-container">
+                <div class="item">
+                        <h3>
+                                FinchEdit: version 2.0
+                        </h3>
+                        1. Switch block.<br/>
+                        2. File Explorer tab to view source and header files.<br/>
+                        3. Highlight errors in Code Editor tabs and Flow Graph View tabs.
+                </div>
+                <div class="item">
+                        <h3>
+                                DefChecker: version 2.0
+                        </h3>
+                        1. Switch block<br/>
+                        2. #define, #include, typedef<br/>
+                        3. enum, union<br/>
+                        3. cast, conditional expression<br/>
+                        4. boolean operator && ||<br/> 
+                        5. equality operator |= == !=<br/>
+                        6. bit operator | &
+                </div>
+                <div class="item">
+                        <h3>
+                                FinchEdit: version 1.0
+                        </h3>
+                        1. Code Editor tab to view file, edit and save.<br/>
+                        2. Output View tab to view analysis results.<br/>
+                        3. Flow Graph View tab to view control flow graph.<br/>
+                </div>
+                <div class="item">
+                        <h3>
+                                DefChecker: version 1.0
+                        </h3>
+                        1. Perform Flow sensitive analysis and Points-to analysis.<br/>
+                        2. Declaration statements, Function declaration and function calls<br/>
+                        3. Assignment expressions consisting of binary operators[+-*/] and unary operator [*&]<br/>
+                        4. Branching statements, if-else statements, break, continue, return<br/>
+                        5. Loop statements, for and while<br/>
+                        6. Arrays, pointer variables, addressOf operator, dereference operator and function pointers<br/>
+                        7. Memory allocation: malloc and free<br/>
+                        8. Struct type and pointer/dot [->.] access operators.
+                </div>
+        </div>
+    </body>
+</html>
