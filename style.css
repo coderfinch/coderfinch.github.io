@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    grid-template-columns : 1fr 1fr;
+    grid-template-columns : 1fr 1fr 1fr 1fr;
     grid-template-rows : 300px;
     column-gap : 1em;
     grid-row-gap: 1em;
@@ -9,24 +9,41 @@
 
 .item {
     height: 200px;
-    background-color: lightgreen;
+    background-color: lightgrey;
     padding: 2em;
     text-align: justify;
 }
 
 .grid-sample-container {
     display: grid;
-    grid-template-columns : 1fr 1fr;
-    grid-template-rows : 600px;
+    grid-template-columns : 1fr 1fr 1fr;
+    grid-template-rows : 400px;
     column-gap : 1em;
     grid-row-gap: 1em;
     align-content: center;
 }
 
 .sample-item {
-    height: 550px;
-    background-color: lightgreen;
+    height: 275px;
+    background-color: lightgrey;
     padding: 2em;
+    overflow-y: auto;
+}
+
+.grid-rel-container {
+    display: grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    grid-template-rows : 300px;
+    column-gap : 1em;
+    grid-row-gap: 1em;
+    align-content: center;
+}
+
+.rel-item {
+    height: 200px;
+    background-color: lightgrey;
+    padding: 2em;
+    overflow-y: auto;
 }
 
 h1 {

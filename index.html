@@ -10,16 +10,14 @@
         </h1>
         <div  class="grid-container">
                 <div class="item">
-                        <br/>
-                        Experience the innovative solution to Static Software Analysis with FinchEdit.
-                        From software flow analysis to intuitive user interface we help to enhance software quality by identifying and reporting vulnerabilities in the source code.
+                        Experience the innovative code editor FinchEdit.
+                        From software flow analysis to intuitive user interface, FinchEdit provides a comprehensive development environment.
+                        The editor provides syntax highlighting, code assist and deeper insights into data flow.
+                        Integrated with DefChecker, a static source code analyzer tool to enhance software quality.
                 </div>
-                <div class="item">
-                        <br/>
-                        FinchEdit is a C code editor integrated with DefChecker, a static source code analyzer tool.
-                        Together, they offer a comprehensive static code analysis experience.
-                        The editor has Flow Graph View that provides deeper insights into the data flow of the source code.
-                </div>
+                <!--<div class="item">
+                        <img height="200" width="200" src="C:\workspace\sca\DefChecker_icon_green.png"> </img>
+                </div> -->
         </div>
         <h2>
                 UI Views
@@ -27,27 +25,25 @@
         <div  class="grid-container">
                 <div class="item">
                         <h3>
-                                Code Editor Tab
+                                Text View Tab
                         </h3>
-                        The Code Editor highlights the lines in C source code that have "use before definition" vulnerability.
-                        User can open a .c file from local file system for editing, fix errors and save changes back to filesystem.   
+                        User can open a .c file from local file system for editing, fix errors and save changes back to filesystem.
+                        Syntax highlighting and view parameter info, member lists for function/variable declaration.
                 </div>
                 <div class="item">
                         <h3>
                                 Flow Graph View Tab
                         </h3>
                         The Flow Graph View shows the control flow of a selected function as basic blocks and edges.
-                        By default, the last function in the .c file currently opened in the Code Editor tab is selected.
-                        Highlights the statements inside basic blocks that have "use before definition" vulnerability.
+                        By default, the last function in the .c file currently opened in Text View tab is selected.
                 </div>
                 <div class="item">
                         <h3>
                                 Output View Tab
                         </h3>
-                        The Output View shows the list of undefined variables observed in .c file selected from File Explorer tab
-                        User can select an error message to see the corresponding highlighted results in Code Editor and Flow Graph View tabs.
+                        The Output View shows the list of undefined variables observed in .c file currently opened in Text View.
                 </div>
-                <div class="item">
+                <!--<div class="item">
                         <h3>
                                 File Explorer View Tab
                         </h3>
@@ -55,7 +51,7 @@
                         User can open root folder containing the source code on the File Explorer tab.
                         User can browse and select .c file from the list to perform analysis on a specific file.
                         By default, analysis is performed on all .c file under the root folder.
-                </div>
+                </div> -->
         </div>
         <h2>
                 Analysis
@@ -76,48 +72,42 @@
                         Interprocedural analysis is performed for call sites that resolve to functions in the same translation unit.
                 </div>
         </div>
+        <h3>
+                How it works?
+        </h3>
         <div  class="grid-container">
                 <div class="item">
-                        <h3>
-                                How it works?
-                        </h3>
                         1. Open the folder that has .c/.h files in File Explorer tab.<br/>
-                        2. Open the source file to be analyzed in Code Editor tab.<br/>
+                        2. Open the source file to be analyzed in Text View tab.<br/>
                         3. Click Run from menu<br/>
                         4. View the results in Output View tab.<br/>
-                        5. View highlighted results in Code Editor tab.</br/>
-                        6. Switch to Flow Graph View tab to view the flow graph and highlighted results.
+                        5. Switch to Flow Graph View tab to view the flow graph.
                 </div>
                 <div class="item">
-                        <h3>
-                                Sample
-                        </h3>
-                        1. Launch FinchEdit.exe<br/>
-                        2. Click menuitem File->Open Sample->Open Sample 1<br/>
-                        3. Code Editor tab shows contents of selected sample<br/>
-                        4. Switch to Flow Graph View tab to view Control Flow Graph<br/>
-                        5. Click menuitem File->Run<br/>
-                        6. Output View shows the list of undefined variables.
+                        1. Click menuitem File->Open Sample->Open Sample 1<br/>
+                        2. Text View tab shows contents of selected sample<br/>
+                        3. Switch to Flow Graph View tab to view Control Flow Graph<br/>
+                        4. Click menuitem File->Run<br/>
+                        5. Output View shows the list of undefined variables.
                 </div>
+        </div>
+        <h2>
+                Prerequisites
+        </h2>
+        <div class="grid-container">
                 <div class="item">
-                        <h3>
-                                Prerequisites
-                        </h3>
                         1. Install Microsoft Visual C++ 2015-2022 Redistributable (x64).<br/>
                         2. Qt 6.8.3 (using LGPL license).<br/>
-                        Source code is available at https://www.qt.io/development/download-open-source<br/>
-                        The libraries are packaged along with the application.<br/>
+                        Source code is available at https://www.qt.io/development/download-open-source
+                        The libraries are packaged along with the application.
                         Built using Visual Studio 2022 (64-bit) version 17.14.15 and Qt 6.8.3. 
                 </div>
         </div>
         <h2>
-                Code snippets and expected result
+                Code snippet
         </h2>
         <div  class="grid-sample-container">
                 <div class="sample-item">
-                        <h3>
-                                1) f1.c
-                        </h3>
                         <pre><code>
                                 Line 1: void f1() {
                                 Line 2:     int b;
@@ -135,7 +125,7 @@
                                 Undefined variable b in Line 4 : sum = b+c
                         </p>
                 </div>
-                <div class="sample-item">
+                <!--<div class="sample-item">
                         <h3>
                                 2) f2.c
                         </h3>
@@ -159,7 +149,7 @@
                                 Output
                         </h4>
                         <p>
-                                Undefined variable b in Line 8 : sum=b+c
+                                Undefined variable b in Line 9 : sum=b+c
                         </p>
                         <h4>
                                 Comments
@@ -278,41 +268,33 @@
                                 Undefined variable q in Line 7 : a = *q<br/>
                                 Undefined variable *q in Line 7 : a = *q<br/>
                         </p>
-                </div>
+                </div> -->
         </div>
         <h2>
                 Release Notes
         </h2>
-        <div  class="grid-container">
-                <div class="item">
+        <div  class="grid-rel-container">
+                <div class="rel-item">
+                        <h3>
+                                FinchEdit: version 1.0
+                        </h3>
+                        1. Text View tab to view file, edit and save.<br/>
+                        2. Syntax highlighting and contextual help.<br/>
+                        3. Output View tab to view analysis results.<br/>
+                        4. Flow Graph View tab to view control flow graph.<br/>
+                </div>
+                <div class="rel-item">
                         <h3>
                                 FinchEdit: version 2.0
                         </h3>
                         1. Switch block.<br/>
-                        2. File Explorer tab to view source and header files.<br/>
-                        3. Highlight errors in Code Editor tabs and Flow Graph View tabs.
+                        2. Syntax highlighting.<br/>
+                        3. Popup for function parameter info.<br/>
+                        4. Dropdown for variable member lists.
                 </div>
-                <div class="item">
-                        <h3>
-                                DefChecker: version 2.0
-                        </h3>
-                        1. Switch block<br/>
-                        2. #define, #include, typedef<br/>
-                        3. enum, union<br/>
-                        3. cast, conditional expression<br/>
-                        4. boolean operator && ||<br/> 
-                        5. equality operator |= == !=<br/>
-                        6. bit operator | &
-                </div>
-                <div class="item">
-                        <h3>
-                                FinchEdit: version 1.0
-                        </h3>
-                        1. Code Editor tab to view file, edit and save.<br/>
-                        2. Output View tab to view analysis results.<br/>
-                        3. Flow Graph View tab to view control flow graph.<br/>
-                </div>
-                <div class="item">
+        </div>
+        <div class="grid-rel-container">
+                <div class="rel-item">
                         <h3>
                                 DefChecker: version 1.0
                         </h3>
@@ -324,6 +306,18 @@
                         6. Arrays, pointer variables, addressOf operator, dereference operator and function pointers<br/>
                         7. Memory allocation: malloc and free<br/>
                         8. Struct type and pointer/dot [->.] access operators.
+                </div>
+                <div class="rel-item">
+                        <h3>
+                                DefChecker: version 2.0
+                        </h3>
+                        1. Switch block<br/>
+                        2. #define, #include, typedef<br/>
+                        3. enum, union<br/>
+                        3. cast, conditional expression<br/>
+                        4. boolean operator && ||<br/>
+                        5. equality operator |= == !=<br/>
+                        6. bit operator | &
                 </div>
         </div>
     </body>
