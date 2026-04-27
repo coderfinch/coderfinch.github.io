@@ -8,40 +8,48 @@
         <h1>
             FinchEdit
         </h1>
-        <div  class="grid-container">
-                <div class="item">
-                        Experience the innovative code editor FinchEdit.
-                        From software flow analysis to intuitive user interface, FinchEdit provides a comprehensive development environment.
-                        The editor provides syntax highlighting, code assist and deeper insights into data flow.
-                        Integrated with DefChecker, a static source code analyzer tool to enhance software quality.
+        <div  class="grid-summary-container">
+                <div>
+                        <img height=200px width=200px src="C:\workspace\sca\FinchEdit_icon.jpg"> </img>
                 </div>
-                <!--<div class="item">
-                        <img height="200" width="200" src="C:\workspace\sca\DefChecker_icon_green.png"> </img>
-                </div> -->
+                <div class="summary-item">
+                                Experience the innovative code editor FinchEdit.
+                                From software flow analysis to intuitive user interface, FinchEdit provides a comprehensive development environment.
+                                The editor provides syntax highlighting, code assist and deeper insights into data flow.
+                                Integrated with DefChecker, a static source code analyzer tool to enhance software quality.
+                </div>
         </div>
-        <h2>
+        <h2 >
                 UI Views
         </h2>
-        <div  class="grid-container">
+        <div  class="grid-view-container">
                 <div class="item">
                         <h3>
-                                Text View Tab
+                                Text View
                         </h3>
-                        User can open a .c file from local file system for editing, fix errors and save changes back to filesystem.
-                        Syntax highlighting and view parameter info, member lists for function/variable declaration.
+                        Open file from local file system, edit and save changes back to filesystem.
+                        Syntax highlighting and view function/variable declaration.
+                </div>
+                <div>
+                        <img height=400px width=400px src="C:\workspace\my_repo\sca\doc\TextView.png"></img>
                 </div>
                 <div class="item">
                         <h3>
-                                Flow Graph View Tab
+                                Output View
                         </h3>
-                        The Flow Graph View shows the control flow of a selected function as basic blocks and edges.
-                        By default, the last function in the .c file currently opened in Text View tab is selected.
+                        The Output View shows the list of undefined variables observed in currently opened .c file in Text View.
+                </div>
+                <div>
+                        <img height=400px width=400px src="C:\workspace\my_repo\sca\doc\OutputView.png"></img>
                 </div>
                 <div class="item">
                         <h3>
-                                Output View Tab
+                                Flow Graph View
                         </h3>
-                        The Output View shows the list of undefined variables observed in .c file currently opened in Text View.
+                        The Flow Graph View shows the control flow of the last function in the currently opened .c file in Text View.
+                </div>
+                <div>
+                        <img height=400px width=400px src="C:\workspace\my_repo\sca\doc\CFGView.png"></img>
                 </div>
                 <!--<div class="item">
                         <h3>
@@ -56,7 +64,7 @@
         <h2>
                 Analysis
         </h2>
-        <div  class="grid-container">
+        <div  class="grid-analysis-container">
                 <div class="item">
                         <h3>
                                 Data Flow analysis
@@ -77,18 +85,29 @@
         </h3>
         <div  class="grid-container">
                 <div class="item">
-                        1. Open the folder that has .c/.h files in File Explorer tab.<br/>
-                        2. Open the source file to be analyzed in Text View tab.<br/>
-                        3. Click Run from menu<br/>
-                        4. View the results in Output View tab.<br/>
-                        5. Switch to Flow Graph View tab to view the flow graph.
+                        <h4>
+                                Scenario - 1
+                        </h4>
+                        <!--1. Open the folder that has .c/.h files in File Explorer.<br/>-->
+                        <ul>
+                                <li>Open the source file to be analyzed in Text View</li>
+                                <li>Hover over variable/function name to see declaration</li>
+                                <li>Click Run from menu</li>
+                                <li>View the results in Output View tab</li>
+                                <li>Switch to Flow Graph View tab to view the flow graph</li>
+                        </ul>
                 </div>
                 <div class="item">
-                        1. Click menuitem File->Open Sample->Open Sample 1<br/>
-                        2. Text View tab shows contents of selected sample<br/>
-                        3. Switch to Flow Graph View tab to view Control Flow Graph<br/>
-                        4. Click menuitem File->Run<br/>
-                        5. Output View shows the list of undefined variables.
+                        <h4>
+                                Scenario - 2
+                        </h4>
+                        <ul>
+                                <li>Click menuitem File->Open Sample->Open Sample 1</li>
+                                <li>Text View tab shows contents of selected sample</li>
+                                <li>Switch to Flow Graph View tab to view Control Flow Graph</li>
+                                <li>Click menuitem File->Run</li>
+                                <li>Output View shows the list of undefined variables</li>
+                        </ul>
                 </div>
         </div>
         <h2>
@@ -96,11 +115,13 @@
         </h2>
         <div class="grid-container">
                 <div class="item">
-                        1. Install Microsoft Visual C++ 2015-2022 Redistributable (x64).<br/>
-                        2. Qt 6.8.3 (using LGPL license).<br/>
-                        Source code is available at https://www.qt.io/development/download-open-source
-                        The libraries are packaged along with the application.
-                        Built using Visual Studio 2022 (64-bit) version 17.14.15 and Qt 6.8.3. 
+                        <ul>
+                                <li>Install Microsoft Visual C++ 2015-2022 Redistributable (x64)</li>
+                                <li>Qt 6.8.3 (using LGPL license)</li>
+                                <li>Source code is available at https://www.qt.io/development/download-open-source</li>
+                                <li>The libraries are packaged along with the application</li>
+                                <li>Built using Visual Studio 2022 (64-bit) version 17.14.15 and Qt 6.8.3</li>
+                        </ul>
                 </div>
         </div>
         <h2>
@@ -108,6 +129,9 @@
         </h2>
         <div  class="grid-sample-container">
                 <div class="sample-item">
+                        <h4>
+                                Input
+                        </h4>
                         <pre><code>
                                 Line 1: void f1() {
                                 Line 2:     int b;
@@ -191,11 +215,11 @@
                         <p>
                                 Variable b in else block shadows the uninitialized variable in outer scope
                         </p> 
-                </div>
+                </div> -->
                 <div class="sample-item">
-                        <h3>
-                                4) f4.c
-                        </h3>
+                        <h4>
+                                        Input
+                        </h4>
                         <pre><code>
                                 Line 1: void f4() {
                                 Line 2:     int *q;
@@ -214,7 +238,7 @@
                         </p>
 
                 </div>
-                <div class="sample-item">
+                <!--<div class="sample-item">
                         <h3>
                                 5) f5.c
                         </h3>
@@ -271,53 +295,68 @@
                 </div> -->
         </div>
         <h2>
+                Pricing
+        </h2>
+        <div  class="grid-container">
+                <div class="auto-size">
+                        FinchEdit is in free trial mode.
+                </div>
+        </div>
+        <h2>
                 Release Notes
         </h2>
         <div  class="grid-rel-container">
+                <h3>
+                        version 2.0
+                </h3>
                 <div class="rel-item">
-                        <h3>
-                                FinchEdit: version 1.0
-                        </h3>
-                        1. Text View tab to view file, edit and save.<br/>
-                        2. Syntax highlighting and contextual help.<br/>
-                        3. Output View tab to view analysis results.<br/>
-                        4. Flow Graph View tab to view control flow graph.<br/>
+                        <h4>
+                                FinchEdit
+                        </h4>
+                        <ul>
+                                <li>Syntax highlighting</li>
+                                <li>Popup for variable/function declaration</li>
+                        </ul>
                 </div>
                 <div class="rel-item">
-                        <h3>
-                                FinchEdit: version 2.0
-                        </h3>
-                        1. Switch block.<br/>
-                        2. Syntax highlighting.<br/>
-                        3. Popup for function parameter info.<br/>
-                        4. Dropdown for variable member lists.
+                        <h4>
+                                DefChecker
+                        </h4>
+                        <ul>
+                                <li>Switch block</li>
+                                <li>#define, #include, typedef</li>
+                                <li>enum, union</li>
+                                <li>cast, conditional expression</li>
+                                <li>operators && || |= == != | &</li>
+                        </ul>
                 </div>
-        </div>
-        <div class="grid-rel-container">
+                <h3>
+                        version 1.0
+                </h3>
                 <div class="rel-item">
-                        <h3>
-                                DefChecker: version 1.0
-                        </h3>
-                        1. Perform Flow sensitive analysis and Points-to analysis.<br/>
-                        2. Declaration statements, Function declaration and function calls<br/>
-                        3. Assignment expressions consisting of binary operators[+-*/] and unary operator [*&]<br/>
-                        4. Branching statements, if-else statements, break, continue, return<br/>
-                        5. Loop statements, for and while<br/>
-                        6. Arrays, pointer variables, addressOf operator, dereference operator and function pointers<br/>
-                        7. Memory allocation: malloc and free<br/>
-                        8. Struct type and pointer/dot [->.] access operators.
+                        <h4>
+                                FinchEdit
+                        </h4>
+                        <ul>
+                                <li>Text View to view file, edit and save</li>
+                                <li>Output View to view analysis results</li>
+                                <li>Flow Graph View to view control flow graph</li>
+                        </ul>
                 </div>
                 <div class="rel-item">
-                        <h3>
-                                DefChecker: version 2.0
-                        </h3>
-                        1. Switch block<br/>
-                        2. #define, #include, typedef<br/>
-                        3. enum, union<br/>
-                        3. cast, conditional expression<br/>
-                        4. boolean operator && ||<br/>
-                        5. equality operator |= == !=<br/>
-                        6. bit operator | &
+                        <h4>
+                                DefChecker
+                        </h4>
+                        <ul>
+                                <li>Perform Flow sensitive analysis and Points-to analysis</li>
+                                <li>Declaration statements, Function declaration and function calls</li>
+                                <li>Assignment expressions: binary operators[+-*/] and unary operator [*&]</li>
+                                <li>Branching statements, if-else statements, break, continue, return</li>
+                                <li>Loop statements, for and while</li>
+                                <li>Arrays, pointer variables, function pointers</li>
+                                <li>Memory allocation: malloc and free</li>
+                                <li>Struct type and pointer/dot [->.] access operators</li>
+                        </ul>
                 </div>
         </div>
     </body>
